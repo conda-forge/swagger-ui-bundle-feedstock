@@ -1,17 +1,17 @@
 {% set name = "swagger-ui-bundle" %}
-{% set version = "0.0.6" %}
+{% set version = "0.0.8" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://github.com/dtkav/swagger_ui_bundle/archive/v{{ version }}.tar.gz"
-  sha256: "1d49f77f53ac6b25d7413bb9239893bd9eff1e7bb570dc3c57b387a345f3b5cd"
+  url: https://github.com/dtkav/swagger_ui_bundle/archive/v{{ version }}.tar.gz
+  sha256: e8ed230e94fc205b26a3a8675c903534a0b2732bde35f523262dd14415c51d7b
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
   noarch: python
 
 requirements:
@@ -30,11 +30,11 @@ test:
     - swagger_ui_bundle
 
 about:
-  home: "https://github.com/dtkav/swagger_ui_bundle"
-  license: "Apache Version 2.0"
-  license_family: "APACHE"
-  license_file: "LICENSE"
-  summary: "swagger_ui_bundle - swagger-ui files in a pip package"
+  home: https://github.com/dtkav/swagger_ui_bundle
+  license: Apache Version 2.0
+  license_family: APACHE
+  license_file: LICENSE
+  summary: swagger_ui_bundle - swagger-ui files in a pip package
 
 extra:
   recipe-maintainers:
