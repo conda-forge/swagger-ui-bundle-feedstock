@@ -1,40 +1,40 @@
 {% set name = "swagger-ui-bundle" %}
-{% set version = "0.0.6" %}
+{% set version = "1.1.0" %}
 
 package:
   name: "{{ name|lower }}"
   version: "{{ version }}"
 
 source:
-  url: "https://github.com/dtkav/swagger_ui_bundle/archive/v{{ version }}.tar.gz"
-  sha256: "1d49f77f53ac6b25d7413bb9239893bd9eff1e7bb570dc3c57b387a345f3b5cd"
+  url: https://github.com/spec-first/swagger_ui_bundle/archive/refs/tags/{{ version }}.tar.gz
+  sha256: 9bedc35baaffa8d902da4224621f053edf730ca8b8bb8414d3a7f3650fe3a255
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
   noarch: python
 
 requirements:
   host:
-    - jinja2 >=2.0
+    - jinja2 >=3.0.0
+    - python >=3.9,<4.0
+    - poetry-core >=1.2.0
     - pip
-    - python
-    - flake8
-    - pytest-runner
   run:
-    - jinja2 >=2.0
-    - python
+    - jinja2 >=3.0.0
+    - python >=3.9,<4.0
 
 test:
   imports:
     - swagger_ui_bundle
 
 about:
-  home: "https://github.com/dtkav/swagger_ui_bundle"
-  license: "Apache Version 2.0"
-  license_family: "APACHE"
-  license_file: "LICENSE"
-  summary: "swagger_ui_bundle - swagger-ui files in a pip package"
+  home: https://github.com/spec-first/swagger_ui_bundle
+  license: Apache-2.0
+  license_family: APACHE
+  license_file: LICENSE
+  summary: swagger_ui_bundle - Swagger UI bundled for usage with Python
+  dev_url: https://github.com/spec-first/swagger_ui_bundle
 
 extra:
   recipe-maintainers:
