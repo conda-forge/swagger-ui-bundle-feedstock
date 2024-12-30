@@ -10,21 +10,23 @@ source:
   sha256: 9bedc35baaffa8d902da4224621f053edf730ca8b8bb8414d3a7f3650fe3a255
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
   noarch: python
 
 requirements:
   host:
     - jinja2 >=3.0.0
-    - python >=3.9,<4.0
+    - python {{ python_min }}
     - poetry-core >=1.2.0
     - pip
   run:
     - jinja2 >=3.0.0
-    - python >=3.9,<4.0
+    - python >={{ python_min }},<4.0
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - swagger_ui_bundle
 
